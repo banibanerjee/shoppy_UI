@@ -1,1 +1,1 @@
-export const BASE_URL = "https://shoppy-server-qj9v.onrender.com/";
+export const BASE_URL = "https://shoppy-server-qj9v.onrender.com";
