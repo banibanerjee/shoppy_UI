@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {BASE_URL} from "../config"
 
 const Login = () => {
   const [state, setState] = useState("Login");
@@ -36,7 +37,7 @@ const Login = () => {
 
   const signup = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/signup`, {
+      const response = await fetch(`${BASE_URL}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

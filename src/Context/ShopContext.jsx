@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-
+import {BASE_URL} from "../config"
 
 export const ShopContext = createContext(null);
 
@@ -16,9 +16,9 @@ const ShopContextProvider = (props) => {
 const [all_products, setAll_products] = useState([]);
   
 useEffect(()=> {
-  fetch(`${import.meta.env.VITE_API_BASE_URL}/allproducts`).then((response)=> response.json()).then((data)=> setAll_products(data));
+  fetch(`${BASE_URL}/allproducts`).then((response)=> response.json()).then((data)=> setAll_products(data));
   if(localStorage.getItem('auth-token')){
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/getcart`, {
+    fetch(`${BASE_URL}/getcart`, {
       method: 'POST',
       headers:{
         Accept:'application/form-data',
@@ -33,7 +33,7 @@ useEffect(()=> {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({...prev, [itemId]:prev[itemId]+1}))
    if(localStorage.getItem('auth-token')){
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/addtocart`, {
+    fetch(`${BASE_URL}/addtocart`, {
       method: 'POST',
       headers:{
            Accept: 'application/form-data',
@@ -47,7 +47,7 @@ useEffect(()=> {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({...prev, [itemId]:prev[itemId]-1}))
     if(localStorage.getItem('auth-token')){
-      fetch(`${import.meta.env.VITE_API_BASE_URL}/removefromcart`, {
+      fetch(`${BASE_URL}/removefromcart`, {
         method: 'POST',
         headers:{
              Accept: 'application/form-data',

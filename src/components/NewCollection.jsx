@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
-
+import {BASE_URL} from "../config"
 const NewCollection = () => {
   const [new_collection, setNew_collection] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/newcollections`)
+    fetch(`${BASE_URL}/newcollections`)
       .then((response) => response.json())
       .then((data) => setNew_collection(data));
   }, []);

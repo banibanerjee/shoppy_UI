@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item'
-
+import {BASE_URL} from "../config"
 const Popular = () => {
 
 const [popularProducts, setPopularProducts] = useState([]);
 
 useEffect(()=> {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/popularproducts`).then((response)=> response.json()).then((data)=> setPopularProducts(data))
+    fetch(`${BASE_URL}/popularproducts`).then((response)=> response.json()).then((data)=> setPopularProducts(data))
 }, [])
 
   return (
