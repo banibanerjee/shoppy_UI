@@ -5,7 +5,7 @@ const NewCollection = () => {
   const [new_collection, setNew_collection] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}newcollections`)
+    fetch(`${BASE_URL}/newcollections`)
       .then((response) => response.json())
       .then((data) => setNew_collection(data));
   }, []);
